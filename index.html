@@ -13,7 +13,7 @@
         font-family: "Poppins", sans-serif;
         margin: 0;
         padding: 0;
-        background: #1f1f1f;
+        background: linear-gradient(to right, #000000, #434343);
         color: #eaeaea;
         scroll-behavior: smooth;
       }
@@ -21,7 +21,7 @@
       header {
         background: #212121;
         color: white;
-        padding: 40px;
+        padding: 20px;
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -31,6 +31,23 @@
       header h1 {
         font-size: 72px;
         font-weight: 700;
+        opacity: 0;
+        animation: pixelate 2s steps(20, end) forwards;
+      }
+
+      @keyframes pixelate {
+        0% {
+          opacity: 0;
+          filter: blur(10px);
+        }
+        50% {
+          opacity: 0.5;
+          filter: blur(5px);
+        }
+        100% {
+          opacity: 1;
+          filter: blur(0px);
+        }
       }
 
       /* Navigation */
@@ -59,6 +76,51 @@
         border-radius: 5px;
       }
 
+      /* About Me Section */
+      .about-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      .headshot {
+        width: 250px; /* Adjust image size */
+        height: auto;
+        margin-right: 30px;
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text p {
+        margin: 10px 0;
+      }
+
+      /* Center the About Me heading and reduce space */
+      #about-me h2 {
+        text-align: center;
+        font-size: 42px;
+        margin-bottom: 10px; /* Reduced the space */
+        color: #00bcd4;
+      }
+
+      /* Responsive design for smaller screens */
+      @media (max-width: 768px) {
+        .about-container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .headshot {
+          margin: 0 0 20px 0;
+        }
+      }
+
       section {
         padding: 50px 20px;
         border-bottom: 1px solid #444;
@@ -69,6 +131,14 @@
         color: #00bcd4;
         font-size: 42px;
         margin-bottom: 20px;
+        margin-top: 0px; /* Removed extra space above */
+      }
+
+      h3 {
+        margin: 0 0 10px;
+        font-size: 24px;
+        color: #00bcd4;
+        margin-top: 0; /* Removed space above */
       }
 
       p,
@@ -200,6 +270,24 @@
         transform: translateY(0);
       }
 
+      /* Contact Section with Social Links */
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .contact-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+        transition: color 0.3s ease;
+      }
+
+      .contact-links a:hover {
+        color: #00bcd4;
+      }
+
       /* Media Queries */
       @media (min-width: 768px) {
         .timeline {
@@ -251,7 +339,7 @@
       <a href="#extra-curricular">Extracurricular</a>
       <a href="#events-attended">Events Attended</a>
       <a href="#projects">Projects</a>
-      <a href="#contact-me">Contact Me</a>
+      <a href="#contact-me">More Information</a>
     </nav>
 
     <div id="progress-bar"></div>
@@ -259,14 +347,39 @@
     <!-- About Me Section -->
     <section id="about-me">
       <h2>About Me</h2>
-      <p>
-        I have loved technology my entire life and started by taking apart old
-        devices that didn't work in my household to try and fix them. By the age
-        of 13, I was building computers. I have continued to grow these
-        interests and will keep myself learning every single day.
-      </p>
+      <!-- Heading is centered above image and text -->
+      <div class="about-container">
+        <img
+          src="https://lazsoc.ca/cdn/shop/files/JC204361_-_Vincenzo_Milano_540x.jpg?v=1726184893"
+          alt="Vincenzo Milano Headshot"
+          class="headshot"
+        />
+        <div class="about-text">
+          <p>
+            From a young age, I’ve been captivated by technology. It all started
+            with dismantling old household devices to understand how they
+            worked, and by the age of 13, I was building custom computers. My
+            passion for technology grew as I explored new skills and challenges,
+            even starting my own coding club with two friends in high school to
+            share my interests.
+          </p>
+          <p>
+            This passion led me to pursue a double degree in Computer Science
+            and Business at Wilfrid Laurier University, where I’ve had the
+            opportunity to connect with amazing individuals from both the tech
+            and business worlds. Throughout my journey, I’ve been involved in
+            numerous clubs and leadership roles, and I’m now the Chief Strategy
+            Officer of Konfer and Co-President of the Laurier Computing Society.
+          </p>
+          <p>
+            I’m committed to expanding my knowledge and skills every day, with a
+            drive to innovate and make meaningful contributions to the fields I
+            love.
+          </p>
+        </div>
+      </div>
 
-      <h3>Skills & Technologies</h3>
+      <h2>Skills & Technologies</h2>
       <div class="skills-container fade-in">
         <!-- Software & APIs -->
         <div class="skill">
@@ -347,27 +460,6 @@
             alt="JavaScript"
           />
           <p>JavaScript</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/VB.NET_Logo.svg/2048px-VB.NET_Logo.svg.png"
-            alt="Visual Basic"
-          />
-          <p>Visual Basic</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
-            alt="React"
-          />
-          <p>React</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg"
-            alt="NextJS"
-          />
-          <p>NextJS</p>
         </div>
       </div>
     </section>
@@ -508,8 +600,8 @@
 
         <div class="timeline-item">
           <img
-            src="https://nacpropertymanagement.com/wp-content/uploads/2023/09/NAC-logo-and-name.webp"
-            alt="NAC Logo"
+            src="https://media.licdn.com/dms/image/v2/C560BAQHMHW4jD10iSQ/company-logo_100_100/company-logo_100_100/0/1679615766191?e=1734566400&v=beta&t=361YihZxdZu_S0dq9YY4j8uQgXsMQNRH6dFgVa4Lj0c"
+            alt="Milano Computers Logo"
           />
           <div>
             <h3>Milano Computers, Vaughan, ON - Founder</h3>
@@ -579,6 +671,7 @@
           />
           <div>
             <h3>HawkHacks, Waterloo, ON - Logistics Coordinator</h3>
+            <p>October 2023 - Present</p>
             <ul>
               <li>
                 Coordinated logistics for hackathon events, ensuring smooth
@@ -596,6 +689,7 @@
           />
           <div>
             <h3>LazSoc, Waterloo, ON - Director of Corporate Relations</h3>
+            <p>July 2024 - Present</p>
             <ul>
               <li>
                 Led corporate outreach efforts, securing sponsorships and
@@ -616,6 +710,7 @@
               National Case Competition (NCC), Waterloo, ON - Programming
               Coordinator
             </h3>
+            <p>June 2023 - August 2024</p>
             <ul>
               <li>
                 Developed and managed programming challenges for national-level
@@ -692,13 +787,22 @@
 
     <!-- Contact Me Section -->
     <section id="contact-me">
-      <h2>Contact Me</h2>
-      <p>
-        Feel free to reach out to me at
-        <a href="mailto:vincenzomilano295@gmail.com"
-          >vincenzomilano295@gmail.com</a
-        >.
-      </p>
+      <h2>More Information</h2>
+      <p>Feel free to reach out to me or take a look at the following:</p>
+
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/vincenzo-milano/" target="_blank"
+          >LinkedIn</a
+        >
+        <a href="https://github.com/Vincenzo-Milano" target="_blank">GitHub</a>
+        <a href="https://vincenzomilanoresume.tiiny.site/" target="_blank"
+          >Resume</a
+        >
+        <a href="https://www.instagram.com/_vincenzomilano/" target="_blank"
+          >Instagram</a
+        >
+        <a href="mailto:vincenzomilano295@gmail.com" target="_blank">Email</a>
+      </div>
     </section>
 
     <script>
