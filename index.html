@@ -76,7 +76,7 @@
         border-radius: 5px;
       }
 
-      /* About Me Section */
+      /* About Me Container */
       .about-container {
         display: flex;
         align-items: center;
@@ -84,29 +84,33 @@
         padding: 20px;
         max-width: 1200px;
         margin: 0 auto;
-        text-align: left;
       }
 
-      .headshot {
-        width: 250px; /* Adjust image size */
-        height: auto;
+      /* Image on the Left */
+      .headshot img {
+        width: 335px; /* Set a reasonable size for the image */
+        height: 500px;
+        border-radius: 10px;
         margin-right: 30px;
       }
 
-      .about-text {
+      /* Box to Hold the Text */
+      .box {
+        background: #292929;
+        padding: 40px;
+        border-radius: 10px;
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
-      .about-text p {
-        margin: 10px 0;
+      .box .about-text {
+        text-align: center; /* Centering the text */
       }
 
-      /* Center the About Me heading and reduce space */
-      #about-me h2 {
-        text-align: center;
-        font-size: 42px;
-        margin-bottom: 10px; /* Reduced the space */
-        color: #00bcd4;
+      .box .about-text p {
+        margin-bottom: 20px;
       }
 
       /* Responsive design for smaller screens */
@@ -116,8 +120,12 @@
           text-align: center;
         }
 
-        .headshot {
+        .headshot img {
           margin: 0 0 20px 0;
+        }
+
+        .box {
+          margin-left: 0;
         }
       }
 
@@ -347,35 +355,38 @@
     <!-- About Me Section -->
     <section id="about-me">
       <h2>About Me</h2>
-      <!-- Heading is centered above image and text -->
       <div class="about-container">
-        <img
-          src="https://lazsoc.ca/cdn/shop/files/JC204361_-_Vincenzo_Milano_540x.jpg?v=1726184893"
-          alt="Vincenzo Milano Headshot"
-          class="headshot"
-        />
-        <div class="about-text">
-          <p>
-            From a young age, I’ve been captivated by technology. It all started
-            with dismantling old household devices to understand how they
-            worked, and by the age of 13, I was building custom computers. My
-            passion for technology grew as I explored new skills and challenges,
-            even starting my own coding club with two friends in high school to
-            share my interests.
-          </p>
-          <p>
-            This passion led me to pursue a double degree in Computer Science
-            and Business at Wilfrid Laurier University, where I’ve had the
-            opportunity to connect with amazing individuals from both the tech
-            and business worlds. Throughout my journey, I’ve been involved in
-            numerous clubs and leadership roles, and I’m now the Chief Strategy
-            Officer of Konfer and Co-President of the Laurier Computing Society.
-          </p>
-          <p>
-            I’m committed to expanding my knowledge and skills every day, with a
-            drive to innovate and make meaningful contributions to the fields I
-            love.
-          </p>
+        <div class="headshot">
+          <img
+            src="https://lazsoc.ca/cdn/shop/files/JC204361_-_Vincenzo_Milano_540x.jpg?v=1726184893"
+            alt="Vincenzo Milano Headshot"
+          />
+        </div>
+        <div class="box">
+          <div class="about-text">
+            <p>
+              From a young age, I’ve been captivated by technology. It all
+              started with dismantling old household devices to understand how
+              they worked, and by the age of 13, I was building custom
+              computers. My passion for technology grew as I explored new skills
+              and challenges, even starting my own coding club with two friends
+              in high school to share my interests.
+            </p>
+            <p>
+              This passion led me to pursue a double degree in Computer Science
+              and Business at Wilfrid Laurier University, where I’ve had the
+              opportunity to connect with amazing individuals from both the tech
+              and business worlds. Throughout my journey, I’ve been involved in
+              numerous clubs and leadership roles, and I’m now the Chief
+              Strategy Officer of Konfer and Co-President of the Laurier
+              Computing Society.
+            </p>
+            <p>
+              I’m committed to expanding my knowledge and skills every day, with
+              a drive to innovate and make meaningful contributions to the
+              fields I love.
+            </p>
+          </div>
         </div>
       </div>
 
