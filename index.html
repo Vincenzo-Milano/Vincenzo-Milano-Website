@@ -1,846 +1,241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vincenzo Milano - Personal Website</title>
+    <meta
+      name="description"
+      content="The portfolio of Vincenzo Milano, an AI, ML, and HPC software program manager building at the intersection of technology, operations, and strategy."
+    />
+    <title>Vincenzo Milano — AI/ML/HPC Software Program Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      body {
-        font-family: "Poppins", sans-serif;
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(to right, #000000, #434343);
-        color: #eaeaea;
-        scroll-behavior: smooth;
-      }
-
-      header {
-        background: #212121;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-      }
-
-      header h1 {
-        font-size: 72px;
-        font-weight: 700;
-        opacity: 0;
-        animation: pixelate 2s steps(20, end) forwards;
-      }
-
-      @keyframes pixelate {
-        0% {
-          opacity: 0;
-          filter: blur(10px);
-        }
-        50% {
-          opacity: 0.5;
-          filter: blur(5px);
-        }
-        100% {
-          opacity: 1;
-          filter: blur(0px);
-        }
-      }
-
-      /* Navigation */
-      nav {
-        position: sticky;
-        top: 0;
-        display: flex;
-        justify-content: center;
-        background: #333;
-        padding: 15px 0;
-        z-index: 100;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-      }
-
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: bold;
-        padding: 10px 15px;
-        transition: background 0.3s ease;
-      }
-
-      nav a:hover {
-        background: #0077cc;
-        border-radius: 5px;
-      }
-
-      /* About Me Container */
-      .about-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      /* Image on the Left */
-      .headshot img {
-        width: 335px; /* Set a reasonable size for the image */
-        height: 500px;
-        border-radius: 10px;
-        margin-right: 30px;
-      }
-
-      /* Box to Hold the Text */
-      .box {
-        background: #292929;
-        padding: 40px;
-        border-radius: 10px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .box .about-text {
-        text-align: center; /* Centering the text */
-      }
-
-      .box .about-text p {
-        margin-bottom: 20px;
-      }
-
-      /* Responsive design for smaller screens */
-      @media (max-width: 768px) {
-        .about-container {
-          flex-direction: column;
-          text-align: center;
-        }
-
-        .headshot img {
-          margin: 0 0 20px 0;
-        }
-
-        .box {
-          margin-left: 0;
-        }
-      }
-
-      section {
-        padding: 50px 20px;
-        border-bottom: 1px solid #444;
-        text-align: center;
-      }
-
-      h2 {
-        color: #00bcd4;
-        font-size: 42px;
-        margin-bottom: 20px;
-        margin-top: 0px; /* Removed extra space above */
-      }
-
-      h3 {
-        margin: 0 0 10px;
-        font-size: 24px;
-        color: #00bcd4;
-        margin-top: 0; /* Removed space above */
-      }
-
-      p,
-      li {
-        font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 15px;
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      /* Hero Image */
-      header::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url("https://source.unsplash.com/1600x900/?technology")
-          center/cover;
-        opacity: 0.2;
-      }
-
-      /* Skills section */
-      .skills-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-        margin-top: 20px;
-      }
-
-      .skill {
-        text-align: center;
-        width: 120px;
-        padding: 10px;
-        border: 1px solid #444;
-        border-radius: 10px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .skill:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-      }
-
-      .skill img {
-        width: 80px;
-        height: 80px;
-        display: block;
-        margin: 0 auto 10px;
-      }
-
-      /* Responsive Grid for Work Experience */
-      .timeline {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .timeline-item {
-        padding: 20px;
-        background: #292929;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-      }
-
-      .timeline-item h3 {
-        margin: 0 0 10px;
-        font-size: 24px;
-        color: #00bcd4;
-      }
-
-      .timeline-item img {
-        width: 50px;
-        height: auto;
-        margin-right: 15px;
-        border-radius: 5px;
-      }
-
-      /* Education Section */
-      .education,
-      .projects {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 40px;
-        margin: auto;
-        background: #292929;
-        border-radius: 10px;
-        text-align: left;
-        max-width: 80%;
-      }
-
-      .education img,
-      .projects img {
-        width: 100px;
-        height: auto;
-        margin-right: 20px;
-        border-radius: 10px;
-      }
-
-      /* Progress Bar */
-      #progress-bar {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 5px;
-        background: linear-gradient(90deg, #0077cc, #00bcd4);
-        transition: width 0.25s ease-out;
-        z-index: 1000;
-      }
-
-      /* Scroll Animations */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-      }
-
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Contact Section with Social Links */
-      .contact-links {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-      }
-
-      .contact-links a {
-        color: white;
-        text-decoration: none;
-        font-size: 24px;
-        transition: color 0.3s ease;
-      }
-
-      .contact-links a:hover {
-        color: #00bcd4;
-      }
-
-      /* Media Queries */
-      @media (min-width: 768px) {
-        .timeline {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (min-width: 1024px) {
-        header h1 {
-          font-size: 84px;
-        }
-
-        nav a {
-          font-size: 18px;
-        }
-
-        section {
-          padding: 70px 40px;
-        }
-
-        h2 {
-          font-size: 48px;
-        }
-
-        p,
-        li {
-          font-size: 18px;
-        }
-
-        .skills-container {
-          gap: 40px;
-        }
-
-        .timeline-item h3 {
-          font-size: 26px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Vincenzo Milano</h1>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Vincenzo Milano home"
+        >VM<span>.</span></a
+      >
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#work">Work</a
+        ><a href="#contact">Contact</a>
+      </nav>
+      <a class="availability" href="mailto:vincenzomilano295@gmail.com"
+        ><span></span> Available to connect</a
+      >
     </header>
 
-    <nav>
-      <a href="#about-me">About Me</a>
-      <a href="#education">Education</a>
-      <a href="#work-experience">Work Experience</a>
-      <a href="#extra-curricular">Extracurricular</a>
-      <a href="#events-attended">Events Attended</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact-me">More Information</a>
-    </nav>
-
-    <div id="progress-bar"></div>
-
-    <!-- About Me Section -->
-    <section id="about-me">
-      <h2>About Me</h2>
-      <div class="about-container">
-        <div class="headshot">
-          <img
-            src="https://lazsoc.ca/cdn/shop/files/JC204361_-_Vincenzo_Milano_540x.jpg?v=1726184893"
-            alt="Vincenzo Milano Headshot"
-          />
+    <main id="top">
+      <section class="hero page-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">
+            Vincenzo Milano <span>/</span> Toronto · AI / ML / HPC
+          </p>
+          <h1>I make complex<br /><em>systems move.</em></h1>
+          <p class="hero-intro">
+            AI/ML/HPC Software Program Manager on AMD's AIG NPI team, working
+            across technical execution, performance, data, and strategy.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#work"
+              >Explore my work <span>↘</span></a
+            ><a
+              class="text-link"
+              href="https://www.linkedin.com/in/vincenzo-milano"
+              target="_blank"
+              rel="noreferrer"
+              >LinkedIn ↗</a
+            >
+          </div>
         </div>
-        <div class="box">
+        <div class="hero-aside reveal delay-one">
+          <div class="portrait-frame">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85"
+              alt="Laptop and notebook on a desk"
+            /><span class="portrait-label"
+              >Technical systems<br />business strategy</span
+            >
+          </div>
+          <p class="side-note">
+            01 / 04<br /><span>Selected work and experience</span>
+          </p>
+        </div>
+      </section>
+
+      <section id="about" class="about section-rule">
+        <div class="section-label">( About me )</div>
+        <div class="about-content reveal">
+          <h2>Curiosity is my<br /><em>operating system.</em></h2>
           <div class="about-text">
             <p>
-              From a young age, I’ve been captivated by technology. It all
-              started with dismantling old household devices to understand how
-              they worked, and by the age of 13, I was building custom
-              computers. My passion for technology grew as I explored new skills
-              and challenges, even starting my own coding club with two friends
-              in high school to share my interests.
+              I have loved technology for as long as I can remember. I started
+              by taking apart broken devices at home, moved on to building
+              computers at 13, and now work where technical systems meet
+              business decisions.
             </p>
             <p>
-              This passion led me to pursue a double degree in Computer Science
-              and Business at Wilfrid Laurier University, where I’ve had the
-              opportunity to connect with amazing individuals from both the tech
-              and business worlds. Throughout my journey, I’ve been involved in
-              numerous clubs and leadership roles, and I’m now the Chief
-              Strategy Officer of Konfer and Co-President of the Laurier
-              Computing Society.
-            </p>
-            <p>
-              I’m committed to expanding my knowledge and skills every day, with
-              a drive to innovate and make meaningful contributions to the
-              fields I love.
+              My work spans AI/ML/HPC program management, enterprise analytics,
+              hardware performance, automation, and community leadership. I like
+              translating complex work into clear priorities, measurable
+              outcomes, and momentum.
             </p>
           </div>
         </div>
-      </div>
-
-      <h2>Skills & Technologies</h2>
-      <div class="skills-container fade-in">
-        <!-- Software & APIs -->
-        <div class="skill">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg"
-            alt="VS Code"
-          />
-          <p>VS Code</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-            alt="GitHub"
-          />
-          <p>GitHub</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png"
-            alt="Git"
-          />
-          <p>Git</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://e7.pngegg.com/pngimages/28/187/png-clipart-opengl-es-khronos-group-webgl-opengl-shading-language-others-blue-3d-computer-graphics.png"
-            alt="OpenGL"
-          />
-          <p>OpenGL</p>
-        </div>
-
-        <!-- Programming Languages -->
-        <div class="skill">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
-            alt="Java Logo"
-          />
-          <p>Java</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png"
-            alt="Python Logo"
-          />
-          <p>Python</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png"
-            alt="C"
-          />
-          <p>C</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg"
-            alt="C++"
-          />
-          <p>C++</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg"
-            alt="HTML"
-          />
-          <p>HTML</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg"
-            alt="CSS"
-          />
-          <p>CSS</p>
-        </div>
-        <div class="skill">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
-            alt="JavaScript"
-          />
-          <p>JavaScript</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education">
-      <h2>Education</h2>
-      <div class="education fade-in">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYgzraYsegrtLy_jE0SZCbr-4XVh8RraW4pA&s"
-          alt="Wilfrid Laurier University Logo"
-        />
-        <div>
+        <div class="education-content education-inline reveal">
+          <p class="eyebrow">Education · 2022 — 2027 · Honours</p>
           <h3>
-            Lazaridis School of Business & Economics at Wilfrid Laurier
-            University
+            Wilfrid Laurier University
+            <small>Lazaridis School of Business & Economics</small>
           </h3>
           <p>
-            Bachelor of Business Administration - BBA / Bachelor of Science - BS
-            (Double Degree), Business Administration and Management, General /
-            Computer Science
+            Honours Bachelor of Science in Computer Science + Honours Bachelor
+            of Business Administration
           </p>
-          <p>Sep 2022 - Apr 2027</p>
           <p>
             Activities and societies: Laurier Computing Society (LCS),
             HawkHacks, National Case Competition (NCC), Lazaridis Students'
             Society (LazSoc), Lazaridis Council
           </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Work Experience Section -->
-    <section id="work-experience">
-      <h2>Work Experience</h2>
-      <div class="timeline fade-in">
-        <div class="timeline-item">
-          <img
-            src="https://media.licdn.com/dms/image/v2/D4E0BAQFyU_FO4DweYg/company-logo_100_100/company-logo_100_100/0/1725943236139/konferca_logo?e=1733961600&v=beta&t=wBJIER-ME2irsXFFYiS8zezyF4fkhHX0IS97f0Ep6Fs"
-            alt="Konfer Logo"
-          />
-          <div>
-            <h3>Konfer Inc, Waterloo, ON - Chief Strategy Officer (CSO)</h3>
-            <p>June 2024 - Present</p>
-            <ul>
-              <li>
-                As CSO of Konfer, I strategize and lead corporate outreach,
-                driving the success of high-impact events, from hackathons to
-                networking gatherings, with a focus on securing sponsorships and
-                partnerships. We specialize in delivering creative,
-                well-executed events that meet client KPIs and leave lasting
-                impressions, both in Canada and internationally
-              </li>
-            </ul>
-          </div>
+      <section id="work" class="work section-rule">
+        <div class="section-heading">
+          <div class="section-label">( Experience )</div>
+          <span>Currently / Previously</span>
         </div>
-
-        <div class="timeline-item">
-          <img
-            src="https://animationvisarts.com/wp-content/uploads/2021/01/IBM-Logo-Design-1972-present.png"
-            alt="IBM Logo"
-          />
-          <div>
-            <h3>IBM, Toronto, ON - Student Ambassador</h3>
-            <p>April 2024 - Present</p>
-            <ul>
-              <li>
-                I represent IBM at campus events, collaborate with global
-                ambassadors, and actively promote mainframe technology by
-                demonstrating its applications in modern computing and
-                enterprise solutions to students.
-              </li>
-            </ul>
-          </div>
+        <div class="experience-list">
+          <article class="experience-item reveal">
+            <div class="experience-logo">
+              <img src="amd_logo.jpg" alt="AMD logo" />
+            </div>
+            <div class="experience-meta">
+              <span>01</span><span>Currently</span>
+            </div>
+            <div>
+              <h3>
+                AI/ML/HPC Software Program Manager
+                <small>at AMD · AIG NPI</small>
+              </h3>
+              <p>
+                Driving software program execution for AI, machine learning, and
+                high-performance computing new product introduction.
+              </p>
+            </div>
+            <span class="arrow">↗</span>
+          </article>
+          <article class="experience-item reveal">
+            <div class="experience-logo">
+              <img
+                src="sun_life_financial_logo.jpg"
+                alt="Sun Life Financial logo"
+              />
+            </div>
+            <div class="experience-meta">
+              <span>02</span><span>Previously</span>
+            </div>
+            <div>
+              <h3>
+                Digital Transformation Analyst
+                <small>at Sun Life Financial</small>
+              </h3>
+              <p>
+                Cut Power BI dashboard refresh times from 6 hours to 3 minutes
+                and reduced model sizes from 320MB to 67MB.
+              </p>
+            </div>
+            <span class="arrow">↗</span>
+          </article>
+          <article class="experience-item reveal">
+            <div class="experience-logo">
+              <img src="pepsico_logo.jpg" alt="PepsiCo logo" />
+            </div>
+            <div class="experience-meta">
+              <span>03</span><span>Previously</span>
+            </div>
+            <div>
+              <h3>IT Analyst <small>at PepsiCo</small></h3>
+              <p>
+                Built analytics and automation tools that improved operational
+                visibility and identified $680K+ in annual logistics savings.
+              </p>
+            </div>
+            <span class="arrow">↗</span>
+          </article>
+          <article class="experience-item reveal">
+            <div class="experience-logo">
+              <img src="1679615766191.jpg" alt="Milano Computers logo" />
+            </div>
+            <div class="experience-meta">
+              <span>04</span><span>Previously</span>
+            </div>
+            <div>
+              <h3>Founder <small>at Milano Computers</small></h3>
+              <p>
+                Assembled, upgraded, and repaired 50+ custom PCs while turning
+                benchmark and thermal data into clear client recommendations.
+              </p>
+            </div>
+            <span class="arrow">↗</span>
+          </article>
         </div>
+      </section>
 
-        <div class="timeline-item">
-          <img
-            src="https://nacpropertymanagement.com/wp-content/uploads/2023/09/NAC-logo-and-name.webp"
-            alt="NAC Logo"
-          />
+      <section class="community section-rule">
+        <div class="section-label">( Community )</div>
+        <div class="community-content reveal">
+          <h2>Making room<br />for <em>more builders.</em></h2>
           <div>
-            <h3>
-              NAC Property Management, Vaughan, ON - Project Manager Co-op
-            </h3>
-            <p>May 2024 - August 2024</p>
-            <ul>
-              <li>
-                At NAC Property Management, I coordinated projects, optimized
-                resource allocation, improved team productivity by streamlining
-                workflows, managed client communications, and led initiatives to
-                enhance operational efficiency with new software solutions.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzkUdlMvs2RawuH6V3YyKb9mrPFaPGbHqO3Q&s"
-            alt="Headstarter AI Logo"
-          />
-          <div>
-            <h3>Headstarter AI, Vaughan, ON - Software Engineer Fellow</h3>
-            <p>July 2024 - September 2024</p>
-            <ul>
-              <li>
-                As a Software Engineer Fellow at Headstarter AI, I lead the
-                development of AI-focused projects using React, NextJS, and
-                OpenAI, and optimize AI models with AWS and TensorFlow.
-                Currently spearheading a project to acquire 1,000 active users
-                by enhancing UI/UX and utilizing Firebase for scalable back-end
-                support.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnaT_C3rNXXAtp12N2-j174xrAr4YqkQWayQ&s"
-            alt="Decathlon Logo"
-          />
-          <div>
-            <h3>Decathlon, Vaughan, ON - IT Specialist</h3>
-            <p>May 2023 - August 2023</p>
-            <ul>
-              <li>
-                As an IT Specialist at Decathlon, I ensured the functionality
-                and security of all in-store systems and devices, managed
-                software updates, troubleshot technical issues, and streamlined
-                IT processes to enhance overall store operations and staff
-                productivity.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <img
-            src="https://media.licdn.com/dms/image/v2/C560BAQHMHW4jD10iSQ/company-logo_100_100/company-logo_100_100/0/1679615766191?e=1734566400&v=beta&t=361YihZxdZu_S0dq9YY4j8uQgXsMQNRH6dFgVa4Lj0c"
-            alt="Milano Computers Logo"
-          />
-          <div>
-            <h3>Milano Computers, Vaughan, ON - Founder</h3>
-            <p>September 2018 - August 2023</p>
-            <ul>
-              <li>
-                As the founder of Milano Computers, I built custom computers
-                tailored to client needs, diagnosed and resolved hardware and
-                software issues, and provided personalized tech support. I also
-                developed a customer-oriented service model, offering
-                maintenance plans and tech consultations to ensure optimal
-                performance and satisfaction.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Extra Curricular Section -->
-    <section id="extra-curricular">
-      <h2>Extracurricular</h2>
-      <div class="timeline fade-in">
-        <div class="timeline-item">
-          <img
-            src="https://lauriercs.ca/icon.png"
-            alt="Laurier Computing Society Logo"
-          />
-          <div>
-            <h3>Laurier Computing Society, Waterloo, ON - Co-President</h3>
-            <p>August 2024 - Present</p>
-            <ul>
-              <li>
-                As Co-President of the Laurier Computing Society, I restructured
-                the organization, expanding the executive team and growing the
-                society’s reach to over 3,500 students. I oversee 30-40 annual
-                events, including workshops, hackathons, and speaker sessions,
-                enhancing student engagement in computer science.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <img
-            src="https://sprott.carleton.ca/wp-content/uploads/jdc-central-logo.png"
-            alt="JDC Central Logo"
-          />
-          <div>
-            <h3>JDC Central, Toronto, ON - Director of Corporate Relations</h3>
-            <p>October 2023 - August 2024</p>
-            <ul>
-              <li>
-                As Director of Corporate Relations at JDC Central, I led the
-                organization of a 3-day competition for 450+ participants,
-                secured $50,000 in sponsorships, and built key partnerships to
-                elevate the event’s profile.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <img
-            src="https://media.licdn.com/dms/image/v2/C4E0BAQGWmRTUjxIO3Q/company-logo_200_200/company-logo_200_200/0/1630653348152/hawkhacks_logo?e=2147483647&v=beta&t=P7cF9gu2LSA0TPB4KQh1gv7n93ATg4n8qOO8bMmegBk"
-            alt="HawkHacks Logo"
-          />
-          <div>
-            <h3>HawkHacks, Waterloo, ON - Logistics Coordinator</h3>
-            <p>October 2023 - Present</p>
-            <ul>
-              <li>
-                Coordinated logistics for hackathon events, ensuring smooth
-                operations, participant satisfaction, and seamless communication
-                across teams.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtVPgCeH8SZywzlPBCuqqbUJSbgbrETtDoTw&s"
-            alt="LazSoc Logo"
-          />
-          <div>
-            <h3>LazSoc, Waterloo, ON - Director of Corporate Relations</h3>
-            <p>July 2024 - Present</p>
-            <ul>
-              <li>
-                Led corporate outreach efforts, securing sponsorships and
-                fostering strong relationships with industry leaders to support
-                student initiatives and events.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <img
-            src="https://media.licdn.com/dms/image/C4E0BAQGqgzuKCGSKbA/company-logo_200_200/0/1630619238301/national_case_competition_logo?e=2147483647&v=beta&t=QDnSCIh5l8CHcMaIR6w8BZzU7YVJHoH2FwLJeD5sah4"
-            alt="NCC Logo"
-          />
-          <div>
-            <h3>
-              National Case Competition (NCC), Waterloo, ON - Programming
-              Coordinator
-            </h3>
-            <p>June 2023 - August 2024</p>
-            <ul>
-              <li>
-                Developed and managed programming challenges for national-level
-                competitions, enhancing participants' skills in critical
-                thinking and problem-solving.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Events Attended Section -->
-    <section id="events-attended">
-      <h2>Events Attended</h2>
-      <div class="timeline fade-in">
-        <div class="timeline-item">
-          <img
-            src="https://nc.sesamers.com/download/noco/pm16qkc1kljsnx4/mlg2mequmkd92kg/c9gk7x6vuls5kjk/MXB2spzFvqejVBAGt6.png"
-            alt="Collision Toronto Logo"
-          />
-          <div>
-            <h3>Collision Toronto</h3>
             <p>
-              Attended this premier technology conference that brings together
-              the world’s best startups, investors, and industry giants. Learned
-              about the latest trends in technology, including AI,
-              cybersecurity, and emerging tech startups.
+              As President of the Laurier Computing Society, I direct a
+              52-member executive team across 7 departments serving 4,000+
+              students. We deliver 26+ annual events, technical workshops, and
+              industry panels that connect students with opportunity. I have
+              also helped with hackathons and case competitions through LCS,
+              HawkHacks, the National Case Competition, Lazaridis Students'
+              Society, Lazaridis Council, and JDC Central. As a former IBM
+              Student Ambassador, I also helped bring industry perspective to
+              campus programming. Previously, as Founder and Chief Strategy
+              Officer of Konfer Inc., I built startup partnerships and organized
+              SpurHacks, a 1,400+ participant hackathon with $100,000+ in
+              prizes.
             </p>
+            <div class="stat-row">
+              <div><strong>4,000+</strong><span>students reached</span></div>
+              <div><strong>52</strong><span>executive members</span></div>
+              <div><strong>26+</strong><span>annual events</span></div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="timeline-item">
-          <img
-            src="https://yt3.googleusercontent.com/rfV1jPTMI_2pzzHN0287qpQ9XeNbCpOG2V84dSMiGaKzTc1zON__i0aQo9SFjK9veDROOlWueys=s900-c-k-c0x00ffffff-no-rj"
-            alt="Futurist Toronto Logo"
-          />
+      <section id="contact" class="contact">
+        <p class="eyebrow">( 05 / Let’s connect )</p>
+        <h2>Have something<br /><em>in mind?</em></h2>
+        <a class="contact-email" href="mailto:vincenzomilano295@gmail.com"
+          >vincenzomilano295@gmail.com <span>↗</span></a
+        >
+        <div class="contact-footer">
+          <span>Vincenzo Milano © 2026</span>
           <div>
-            <h3>Futurist Toronto</h3>
-            <p>
-              Explored the future of finance and blockchain technologies at one
-              of the largest tech events in Canada, networking with industry
-              leaders and discovering new innovations in decentralized finance
-              (DeFi) and blockchain applications.
-            </p>
+            <a
+              href="https://www.linkedin.com/in/vincenzo-milano"
+              target="_blank"
+              rel="noreferrer"
+              >LinkedIn</a
+            ><a href="mailto:vincenzomilano295@gmail.com">Email</a>
           </div>
+          <span>Toronto · Canada</span>
         </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects fade-in">
-        <div>
-          <h3>Ray Tracer | OpenGL & C++</h3>
-          <p>September 2023 - Present</p>
-          <ul>
-            <li>
-              Developed a lightweight CPU-based ray tracer and implemented
-              features such as scene composition, reflection mapping, UV
-              textures, and depth-of-field simulation to generate detailed and
-              photorealistic images.
-            </li>
-            <li>
-              Utilized advanced techniques and a proprietary rendering engine to
-              model light scattering and scene generation, showcasing the
-              ability to work independently on complex projects.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Me Section -->
-    <section id="contact-me">
-      <h2>More Information</h2>
-      <p>Feel free to reach out to me or take a look at the following:</p>
-
-      <div class="contact-links">
-        <a href="https://www.linkedin.com/in/vincenzo-milano/" target="_blank"
-          >LinkedIn</a
-        >
-        <a href="https://github.com/Vincenzo-Milano" target="_blank">GitHub</a>
-        <a href="https://vincenzomilanoresume.tiiny.site/" target="_blank"
-          >Resume</a
-        >
-        <a href="https://www.instagram.com/_vincenzomilano/" target="_blank"
-          >Instagram</a
-        >
-        <a href="mailto:vincenzomilano295@gmail.com" target="_blank">Email</a>
-      </div>
-    </section>
-
-    <script>
-      window.onscroll = function () {
-        updateProgressBar();
-        fadeInOnScroll();
-      };
-
-      function updateProgressBar() {
-        var winScroll =
-          document.body.scrollTop || document.documentElement.scrollTop;
-        var height =
-          document.documentElement.scrollHeight -
-          document.documentElement.clientHeight;
-        var scrolled = (winScroll / height) * 100;
-        document.getElementById("progress-bar").style.width = scrolled + "%";
-      }
-
-      function fadeInOnScroll() {
-        const elements = document.querySelectorAll(".fade-in");
-        elements.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < window.innerHeight) {
-            el.classList.add("visible");
-          }
-        });
-      }
-    </script>
+      </section>
+    </main>
+    <script src="js/animation.js"></script>
   </body>
 </html>
